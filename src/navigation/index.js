@@ -86,7 +86,7 @@ const MainRouter = () => {
         <NavigationContainer theme={{
             dark: false,
             colors: {
-                background: colors.body
+                background: colors.layer1
             }
         }} >
             {

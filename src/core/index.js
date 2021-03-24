@@ -4,9 +4,7 @@ import React, {
 import {
     SafeAreaView
 } from 'react-native';
-import {
-    CoreTokensProvider,
-    CoreThemeProvider,
+import CoreContext, {
     useCoreTheme
 } from './context';
 import GenerateColors from './theme/colors';
@@ -19,10 +17,23 @@ const SetDefaults = ({
 }) => {
     const [coreTheme, setCoreTheme] = useCoreTheme();
     useEffect(() => {
-        setCoreTheme({
-            colors: GenerateColors(coreTheme.value)
-        });
-    }, []);
+        try {
+            const projectColors = require("../theme/index");
+            if (projectColors) {
+                setCoreTheme({
+                    colors: projectColors.default(coreTheme.value)
+                });
+            } else {
+                setCoreTheme({
+                    colors: GenerateColors(coreTheme.value)
+                });
+            }
+        } catch (e) {
+            setCoreTheme({
+                colors: GenerateColors(coreTheme.value)
+            });
+        }
+    }, [coreTheme.value]);
     return children;
 };
 
@@ -30,17 +41,15 @@ const Core = ({
     children
 }) => {
     return (
-        <CoreThemeProvider>
-            <CoreTokensProvider>
-                <SafeAreaView
-                    style={style_main.container}
-                >
-                    <SetDefaults>
-                        {children}
-                    </SetDefaults>
-                </SafeAreaView>
-            </CoreTokensProvider>
-        </CoreThemeProvider>
+        <CoreContext>
+            <SafeAreaView
+                style={style_main.container}
+            >
+                <SetDefaults>
+                    {children}
+                </SetDefaults>
+            </SafeAreaView>
+        </CoreContext>
     );
 };
 export default Core;

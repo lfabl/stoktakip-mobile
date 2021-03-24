@@ -10,19 +10,36 @@ import {
 
 const CoreThemeContext = createContext(DEFAULT_CORE_THEME_STORE);
 const CoreThemeDispatchContext = createContext(undefined);
-export const CoreThemeProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(
+
+const CoreTokensContext = createContext(DEFAULT_CORE_TOKENS_STORE);
+const CoreTokensDispatchContext = createContext(undefined);
+
+const CoreContext = ({ children }) => {
+    const [coreTheme, setCoreTheme] = useReducer(
         (state, newValue) => ({ ...state, ...newValue }),
         DEFAULT_CORE_THEME_STORE
     );
+    const [coreTokens, setCoreTokens] = useReducer(
+        (state, newValue) => ({ ...state, ...newValue }),
+        DEFAULT_CORE_TOKENS_STORE
+    );
+
     return (
         <CoreThemeContext.Provider
-            value={state}
+            value={coreTheme}
         >
             <CoreThemeDispatchContext.Provider
-                value={dispatch}
+                value={setCoreTheme}
             >
-                {children}
+                <CoreTokensContext.Provider
+                    value={coreTokens}
+                >
+                    <CoreTokensDispatchContext.Provider
+                        value={setCoreTokens}
+                    >
+                        {children}
+                    </CoreTokensDispatchContext.Provider>
+                </CoreTokensContext.Provider>
             </CoreThemeDispatchContext.Provider>
         </CoreThemeContext.Provider>
     );
@@ -32,26 +49,10 @@ export const useCoreTheme = () => [
     useContext(CoreThemeDispatchContext)
 ];
 
-const CoreTokensContext = createContext(DEFAULT_CORE_TOKENS_STORE);
-const CoreTokensDispatchContext = createContext(undefined);
-export const CoreTokensProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(
-        (state, newValue) => ({ ...state, ...newValue }),
-        DEFAULT_CORE_TOKENS_STORE
-    );
-    return (
-        <CoreTokensContext.Provider
-            value={state}
-        >
-            <CoreTokensDispatchContext.Provider
-                value={dispatch}
-            >
-                {children}
-            </CoreTokensDispatchContext.Provider>
-        </CoreTokensContext.Provider>
-    );
-};
+
 export const useCoreTokens = () => [
     useContext(CoreTokensContext),
     useContext(CoreTokensDispatchContext)
 ];
+
+export default CoreContext;

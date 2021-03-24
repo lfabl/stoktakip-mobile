@@ -6,25 +6,55 @@ export const DEFAULT_CORE_THEME_STORE = {
     colors: {
     },
     typography: {
-        headerTitle: {
-            fontSize: 24,
-            fontWeight: "700"
+        header1: {
+            fontFamily: "Exo2-Light",
+            lineHeight: 62.4,
+            fontSize: 48
         },
-        body: {
-            fontSize: 14,
-            fontWeight: "500"
+        header2: {
+            fontFamily: "Exo2-Regular",
+            lineHeight: 41.6,
+            fontSize: 32
         },
-        inputTitle: {
-            fontSize: 16,
-            fontWeight: "700"
+        header3: {
+            fontFamily: "Exo2-Medium",
+            lineHeight: 31.2,
+            fontSize: 24
         },
-        inputContent: {
-            fontSize: 14,
-            fontWeight: "500"
+        header4: {
+            fontFamily: "Exo2-Regular",
+            lineHeight: 26,
+            fontSize: 20
+        },
+        header5: {
+            fontFamily: "Exo2-SemiBold",
+            lineHeight: 26,
+            fontSize: 20
+        },
+        header6: {
+            fontFamily: "Exo2-Regular",
+            lineHeight: 23.4,
+            fontSize: 18
+        },
+        header7: {
+            fontFamily: "Exo2-SemiBold",
+            lineHeight: 23.4,
+            fontSize: 18
+        },
+        header8: {
+            fontFamily: "Exo2-Medium",
+            lineHeight: 20.8,
+            fontSize: 16
+        },
+        header9: {
+            fontFamily: "Exo2-SemiBold",
+            lineHeight: 20.8,
+            fontSize: 16
         },
         button: {
             fontSize: 16,
-            fontWeight: "700"
+            fontWeight: "700",
+            fontFamily: "Exo2-Bold"
         }
     }
 };
@@ -38,11 +68,10 @@ export const DEFAULT_CORE_TOKENS_STORE = {
         inline: 4
     },
     borders: {
-        button: 1,
         textInput: 2
     },
     radiuses: {
-        button: 8,
+        button: 5,
         textInput: 4
     },
     disabled: {

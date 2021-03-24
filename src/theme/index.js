@@ -24,6 +24,7 @@ const GenerateColors = (themeName) => {
         result.layer3 = palette.layer3;
         result.accent = palette.accent;
         result.body = palette.gray10;
+     
     }
     return result;
 };
