@@ -16,8 +16,7 @@ import {
     Button,
 } from "../../../core/components";
 import {
-    useCoreTokens,
-    useCoreTheme
+    useCoreTokens
 } from "../../../core/context";
 
 const ForgetPassword = () => {
@@ -35,7 +34,7 @@ const ForgetPassword = () => {
     >
         <Header
             onPressBack={() => navigation.goBack()}
-            title={"Şifremi Unuttum"}
+            title="Şifremi Unuttum"
         />
 
         <View style={[

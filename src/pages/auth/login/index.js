@@ -116,7 +116,7 @@ const Login = () => {
 
             <Button
                 onPress={() => { }}
-                title="Kaydet"
+                title="Giriş Yap"
                 wrap="no-wrap"
             />
         </View>
