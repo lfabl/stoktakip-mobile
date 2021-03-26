@@ -51,6 +51,10 @@ export const DEFAULT_CORE_THEME_STORE = {
             lineHeight: 20.8,
             fontSize: 16
         },
+        header10: {
+            fontFamily: "Exo2-Bold",
+            fontSize: 20
+        },
         button: {
             fontSize: 16,
             fontWeight: "700",

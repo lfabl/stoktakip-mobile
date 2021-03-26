@@ -1,15 +1,66 @@
-import React from "react";
+import React, {
+    useState
+} from "react";
 import {
     View
 } from "react-native";
 import {
-    styles
+    styles_main
 } from "./stylesheet";
+import {
+    useNavigation
+} from "@react-navigation/native";
+import {
+    TextInput,
+    Header,
+    Button,
+} from "../../../core/components";
+import {
+    useCoreTokens,
+    useCoreTheme
+} from "../../../core/context";
 
-const ForgetPassword = () => { 
-    return <View style={styles.container}>
+const ForgetPassword = () => {
+    const navigation = useNavigation();
+    const [nCoreTokens] = useCoreTokens();
 
-    </View>
+    const [mail, setMail] = useState("");
+
+    const {
+        spaces
+    } = nCoreTokens;
+
+    return <View
+        style={styles_main.container}
+    >
+        <Header
+            onPressBack={() => navigation.goBack()}
+            title={"Şifremi Unuttum"}
+        />
+
+        <View style={[
+            styles_main.contentContainer,
+            {
+                padding: spaces.container
+            }
+        ]}>
+            <TextInput
+                title="E-Posta"
+                value={mail}
+                onChangeText={(val) => setMail(val)}
+                cleanable={true}
+                style={{
+                    marginBottom: spaces.content
+                }}
+            />
+
+            <Button
+                onPress={() => { }}
+                title="Gönder"
+                wrap="no-wrap"
+            />
+        </View>
+    </View >
 };
 
 export default ForgetPassword;

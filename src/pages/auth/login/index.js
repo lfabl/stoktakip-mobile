@@ -42,6 +42,10 @@ const Login = () => {
         navigation.navigate("Signup");
     };
 
+    const goForgetPasswordPage = () => {
+        navigation.navigate("ForgetPassword");
+    };
+
     return <View
         style={styles_main.container}
     >
@@ -49,7 +53,7 @@ const Login = () => {
             style={styles_main.headerContainer}
         >
             <TouchableOpacity
-                onPress={() => {}}
+                onPress={() => { }}
             >
                 <Icon
                     family="FontAwesome5"
@@ -94,6 +98,22 @@ const Login = () => {
                 }}
                 secureTextEntry={true}
             />
+            <TouchableOpacity
+                style={[
+                    styles_main.createAccountInformationContainer,
+                    {
+                        padding: spaces.content * 2
+                    }
+                ]}
+                onPress={() => goForgetPasswordPage()}
+            >
+                <Text
+                    type="header8"
+                >
+                    Şifreni mi unuttun ?
+                </Text>
+            </TouchableOpacity>
+
             <Button
                 onPress={() => { }}
                 title="Kaydet"
