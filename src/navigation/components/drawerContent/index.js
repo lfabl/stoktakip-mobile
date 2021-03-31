@@ -35,7 +35,12 @@ const DrawerContent = (props) => {
     } = nCoreTheme;
 
     return <View
-        style={styles_main.container}
+        style={[
+            styles_main.container,
+            {
+                backgroundColor: colors.pageBody
+            }
+        ]}
     >
         <View
             style={styles_main.profileContainer}

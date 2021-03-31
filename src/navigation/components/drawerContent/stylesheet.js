@@ -3,12 +3,13 @@ import {
     Dimensions
 } from "react-native";
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 const CONTAINER_WIDTH = width / 1.47;
 
 export const styles_main = StyleSheet.create({
     container: {
         width: CONTAINER_WIDTH,
+        height: height
     },
     profileContainer: {
         width: CONTAINER_WIDTH,
@@ -17,6 +18,7 @@ export const styles_main = StyleSheet.create({
         justifyContent: "space-between",
         backgroundColor: "white",
         padding: 10,
+        marginBottom: 10
     },
     profileBarContainer: {
         flexDirection: "row"

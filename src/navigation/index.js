@@ -71,7 +71,6 @@ const AuthNav = () => {
 
 const MainDrawerNav = () => {
     return <MainDrawer.Navigator
-        drawerType={"slide"}
         drawerContent={(props) => <DrawerContent {...props} />}
         drawerStyle={{
             width: DRAWER_CONTAINER_WIDTH,

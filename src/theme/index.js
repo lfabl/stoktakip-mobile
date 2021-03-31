@@ -23,6 +23,7 @@ const GenerateColors = (themeName) => {
         result.layer2 = palette.layer2;
         result.layer3 = palette.layer3;
         result.accent = palette.accent;
+        result.pageBody = palette.body;
         result.body = palette.gray10;
      
     }

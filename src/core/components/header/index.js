@@ -14,7 +14,11 @@ import Icon from "../icon";
 import Text from "../text";
 
 const Header = ({
+    onPressDrawer,
+    onPressPlus,
+    onPressEdit,
     onPressBack,
+    headerType,
     style,
     title
 }) => {
@@ -32,20 +36,24 @@ const Header = ({
         style={[
             styles_main.container,
             {
-                padding: spaces.container
+                padding: spaces.container,
+                backgroundColor: headerType === "page" ? colors.seperator : "rgba(0,0,0,0)"
             },
             style
         ]}
     >
         <TouchableOpacity
-            onPress={() => onPressBack()}
+            onPress={() => {
+                if (onPressBack) onPressBack()
+                else if (onPressDrawer) onPressDrawer()
+            }}
         >
             <View
                 style={styles_main.subContainer}
             >
                 <Icon
                     family="FontAwesome5"
-                    name="chevron-left"
+                    name={onPressDrawer ? "align-left" : "chevron-left"}
                     color={colors.body}
                     size={24}
                 />
@@ -58,10 +66,26 @@ const Header = ({
             {title}
         </Text>
 
-        <View
-            style={styles_main.subContainer}
-        />
-    </View>
+        <TouchableOpacity
+            onPress={() => {
+                if (onPressPlus) onPressPlus()
+                else if (onPressEdit) onPressEdit()
+            }}
+        >
+            {
+                onPressPlus || onPressEdit ? <View
+                    style={styles_main.subContainer}
+                >
+                    <Icon
+                        family="FontAwesome5"
+                        name={onPressPlus ? "plus" : "edit"}
+                        color={colors.body}
+                        size={24}
+                    />
+                </View> : null
+            }
+        </TouchableOpacity>
+    </View >
 };
 
 export default Header;

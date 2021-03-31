@@ -1,7 +1,6 @@
 import React from "react";
 import {
-    View,
-    ActivityIndicator
+    View
 } from "react-native";
 import {
     styles
@@ -9,15 +8,26 @@ import {
 import {
     useCoreTheme
 } from "../../../core/context";
+import {
+    Header
+} from "../../../core/components";
 
-const Home = () => {
+const Home = ({
+    navigation
+}) => {
     const [coreTheme] = useCoreTheme();
     const {
         colors
     } = coreTheme;
 
     return <View style={styles.container}>
-      
+        <Header
+            onPressDrawer={() => {
+                navigation.openDrawer();
+            }}
+            title={"Stok Takip"}
+            headerType={"page"}
+        />
     </View>
 };
 

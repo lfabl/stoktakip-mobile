@@ -7,7 +7,8 @@ export const styles_main = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        height: 80
     },
     subContainer: {
         width: 30,
