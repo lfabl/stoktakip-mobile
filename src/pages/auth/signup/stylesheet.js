@@ -8,15 +8,12 @@ export const styles_main = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between"
     },
-    headerContainer: {
-        width: "100%",
-        padding: 15
-    },
     contentContainer: {
         width: "100%",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        zIndex: 99
     },
     logo: {
         width: 166,

@@ -2,7 +2,9 @@ import React, {
     useState
 } from "react";
 import {
+    KeyboardAvoidingView,
     TouchableOpacity,
+    Platform,
     Image,
     View
 } from "react-native";
@@ -22,11 +24,14 @@ import {
     useCoreTokens,
     useCoreTheme
 } from "../../../core/context";
+import useGlobalState from "../../../context";
 
 const Login = () => {
     const navigation = useNavigation();
-    const [nCoreTheme] = useCoreTheme();
+
+    const [globalState, setGlobalState] = useGlobalState();
     const [nCoreTokens] = useCoreTokens();
+    const [nCoreTheme] = useCoreTheme();
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -46,8 +51,21 @@ const Login = () => {
         navigation.navigate("ForgetPassword");
     };
 
-    return <View
+    const signin = () => {
+        setGlobalState({
+            userData: {
+                ...globalState.userData, 
+                login: true,
+                userName: "gorkemYildiz",
+                fullName: "Gorkem Yildiz",
+                profileImage: "https://images.pexels.com/photos/2078265/pexels-photo-2078265.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            }
+        });
+    }
+
+    return <KeyboardAvoidingView
         style={styles_main.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
         <View
             style={styles_main.headerContainer}
@@ -115,7 +133,7 @@ const Login = () => {
             </TouchableOpacity>
 
             <Button
-                onPress={() => { }}
+                onPress={() => signin()}
                 title="Giriş Yap"
                 wrap="no-wrap"
             />
@@ -145,7 +163,7 @@ const Login = () => {
                 Kayıt Ol
             </Text>
         </TouchableOpacity>
-    </View >
+    </KeyboardAvoidingView >
 };
 
 export default Login;

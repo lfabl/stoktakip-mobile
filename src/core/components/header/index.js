@@ -15,6 +15,7 @@ import Text from "../text";
 
 const Header = ({
     onPressBack,
+    style,
     title
 }) => {
     const [nCoreTheme] = useCoreTheme();
@@ -28,9 +29,13 @@ const Header = ({
     } = nCoreTokens;
 
     return <View
-        style={[styles_main.container, {
-            padding: spaces.container
-        }]}
+        style={[
+            styles_main.container,
+            {
+                padding: spaces.container
+            },
+            style
+        ]}
     >
         <TouchableOpacity
             onPress={() => onPressBack()}

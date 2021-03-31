@@ -6,6 +6,9 @@ const DEFAULT_GLOBAL_STATE = {
     userData: {
         login: false,
         token: null,
+        userName: "",
+        fullName: "",
+        profileImage: ""
     }
 };
 

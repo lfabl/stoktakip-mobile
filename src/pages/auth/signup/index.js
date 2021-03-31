@@ -21,7 +21,7 @@ import {
     useCoreTokens
 } from "../../../core/context";
 
-const Login = () => {
+const Signup = () => {
     const navigation = useNavigation();
     const [nCoreTokens] = useCoreTokens();
 
@@ -42,6 +42,9 @@ const Login = () => {
         <Header
             onPressBack={() => navigation.goBack()}
             title="Kayıt Ol"
+            style={{
+                zIndex: 50
+            }}
         />
 
         <View style={[
@@ -106,4 +109,4 @@ const Login = () => {
     </KeyboardAvoidingView >;
 };
 
-export default Login;
+export default Signup;

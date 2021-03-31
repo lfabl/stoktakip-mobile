@@ -17,6 +17,7 @@ export const styles_main = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        zIndex: 99
     },
     logo: {
         width: 166,
