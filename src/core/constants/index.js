@@ -75,8 +75,10 @@ export const DEFAULT_CORE_TOKENS_STORE = {
         textInput: 2
     },
     radiuses: {
+        textInput: 4,
         button: 5,
-        textInput: 4
+        image: 5,
+        card: 6,
     },
     disabled: {
         opacity: 0.33

@@ -4,7 +4,8 @@ import {
     View
 } from "react-native";
 import {
-    useCoreTheme
+    useCoreTokens,
+    useCoreTheme,
 } from "../../context";
 import {
     styles_main
@@ -17,16 +18,22 @@ const Search = ({
     inputStyle,
     value
 }) => {
-    const [nCoreTheme] = useCoreTheme();
+    const [nCoreThemes] = useCoreTheme();
+    const [nCoreTokens] = useCoreTokens();
+
     const {
         colors
-    } = nCoreTheme;
+    } = nCoreThemes;
+    const {
+        spaces 
+    } = nCoreTokens;
 
     return <View
         style={[
             styles_main.container,
             {
-                borderColor: colors.hideText
+                borderColor: colors.hideText,
+                marginBottom: spaces.container,
             },
             containerStyle
         ]}

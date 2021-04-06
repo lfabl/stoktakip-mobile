@@ -32,7 +32,6 @@ export const styles_main = StyleSheet.create({
     profileBarImage: {
         width: 60,
         height: 60,
-        borderRadius: 5
     },
     signOutContainer: {
         width: 40,

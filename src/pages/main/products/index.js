@@ -2,7 +2,8 @@ import React, {
     useState
 } from "react";
 import {
-    View
+    FlatList,
+    View,
 } from "react-native";
 import {
     styles_main
@@ -12,16 +13,21 @@ import {
     useCoreTheme,
 } from "../../../core/context";
 import {
+    ProductCard,
     Header,
     Search
 } from "../../../core/components";
+import {
+    PRODUCTS_DATAS
+} from "../../../exampleDatas";
 
 const Products = ({
     navigation
 }) => {
-    const [nCoreThems] = useCoreTheme();
-    const [nCoreTokens] = useCoreTokens();
     const [searchValue, setSearchValue] = useState("");
+    const [datas, setDatas] = useState(PRODUCTS_DATAS);
+    const [nCoreTokens] = useCoreTokens();
+    const [nCoreThems] = useCoreTheme();
 
     const {
         colors
@@ -56,7 +62,18 @@ const Products = ({
                 onChangeText={(val) => setSearchValue(val)}
             />
 
-            
+            <FlatList
+                data={datas}
+                renderItem={({ item, index }) => <ProductCard
+                    onPress={() => { }}
+                    unitPrice={item.unitPrice}
+                    image={item.image}
+                    count={item.count}
+                    title={item.title}
+                    key={item.id}
+                />}
+            />
+
         </View>
     </View>
 };

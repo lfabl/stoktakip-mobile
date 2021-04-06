@@ -12,6 +12,7 @@ import {
     Icon
 } from "../../../core/components";
 import {
+    useCoreTokens,
     useCoreTheme
 } from "../../../core/context";
 import {
@@ -21,6 +22,7 @@ import useGlobalState from "../../../context";
 
 const DrawerContent = (props) => {
     const [globalState] = useGlobalState();
+    const [nCoreTokens] = useCoreTokens();
     const [nCoreTheme] = useCoreTheme();
 
     const {
@@ -33,6 +35,9 @@ const DrawerContent = (props) => {
     const {
         colors
     } = nCoreTheme;
+    const {
+        radiuses
+    } = nCoreTokens;
 
     return <View
         style={[
@@ -50,7 +55,12 @@ const DrawerContent = (props) => {
             >
                 <Image
                     source={{ uri: profileImage }}
-                    style={styles_main.profileBarImage}
+                    style={[
+                        styles_main.profileBarImage,
+                        {
+                            borderRadius: radiuses.image
+                        }
+                    ]}
                 />
                 <View
                     style={styles_main.profileBarDescriptionContainer}
