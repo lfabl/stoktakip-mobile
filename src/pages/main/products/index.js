@@ -9,15 +9,29 @@ import {
 import {
     useCoreTheme
 } from "../../../core/context";
+import {
+    Header
+} from "../../../core/components";
 
-const Products = () => {
+const Products = ({
+    navigation
+}) => {
     const [coreTheme] = useCoreTheme();
     const {
         colors
     } = coreTheme;
 
     return <View style={styles.container}>
-      
+        <Header
+            onPressDrawer={() => {
+                navigation.openDrawer();
+            }}
+            onPressPlus={() => {
+
+            }}
+            title={"Ürünler"}
+            headerType={"page"}
+        />
     </View>
 };
 

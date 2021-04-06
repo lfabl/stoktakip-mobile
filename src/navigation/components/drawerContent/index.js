@@ -98,6 +98,7 @@ const DrawerContent = (props) => {
                             backgroundColor: index === state.index ? colors.primary : "rgba(0,0,0,0)",
                         }
                     ]}
+                    key={index}
                     onPress={() => navigation.navigate(item)}
                 >
                     <Text
