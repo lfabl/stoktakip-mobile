@@ -13,7 +13,7 @@ const GenerateColors = (themeName) => {
         const palette = theme[themeName];
         result.constrastBody = palette.gray98;
         result.buttonText = palette.gray98;
-        result.seperator = palette.gray80;
+        result.seperator = palette.gray90;
         result.hideText = palette.gray60;
         result.primary = palette.primary;
         result.warning = palette.warning;

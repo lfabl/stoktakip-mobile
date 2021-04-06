@@ -32,7 +32,7 @@ const Search = ({
         style={[
             styles_main.container,
             {
-                borderColor: colors.hideText,
+                borderColor: colors.seperator,
                 marginBottom: spaces.container,
             },
             containerStyle
@@ -44,6 +44,7 @@ const Search = ({
                 inputStyle
             ]}
             value={value}
+            placeholderTextColor={colors.sperator}
             onChangeText={(val) => onChangeText(val)}
             placeholder={placeholder ? placeholder : "Arama metnini giriniz."}
         />

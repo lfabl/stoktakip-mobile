@@ -5,13 +5,14 @@ import {
 import {
     useCoreTheme
 } from '../../context';
+
 const Text = ({
     type = "body",
     children,
     style,
     ...props
 }) => {
-    const [coreTheme, setCoreTheme] = useCoreTheme();
+    const [coreTheme] = useCoreTheme();
 
     const {
         typography,
@@ -31,4 +32,5 @@ const Text = ({
         {children}
     </NativeText>;
 };
+
 export default Text;

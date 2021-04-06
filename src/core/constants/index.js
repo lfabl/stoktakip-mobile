@@ -55,10 +55,18 @@ export const DEFAULT_CORE_THEME_STORE = {
             fontFamily: "Exo2-Bold",
             fontSize: 20
         },
+        header11: {
+            fontFamily: "Exo2-Regular",
+            fontSize: 14
+        },
         button: {
             fontSize: 16,
             fontWeight: "700",
             fontFamily: "Exo2-Bold"
+        },
+        light: {
+            fontSize: 12,
+            fontFamily: "Exo2-Light"
         }
     }
 };

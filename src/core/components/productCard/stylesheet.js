@@ -11,5 +11,15 @@ export const styles_main = StyleSheet.create({
     image: {
         width: 90,
         height: 90
+    },
+    descriptionContainer: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-between",
+    },
+    descriptionItem: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
     }
 });

@@ -3,7 +3,6 @@ import {
     TouchableOpacity,
     Image,
     View,
-    Text,
 } from "react-native";
 import {
     styles_main
@@ -12,6 +11,10 @@ import {
     useCoreTheme,
     useCoreTokens
 } from "../../context";
+import {
+    numberDivideder
+} from "../../../helpers";
+import Text from "../text";
 
 const ProductCard = ({
     unitPrice,
@@ -55,6 +58,75 @@ const ProductCard = ({
                 }
             ]}
         />
+
+        <View
+            style={[
+                styles_main.descriptionContainer,
+                {
+                    marginLeft: spaces.container
+                }
+            ]}
+        >
+            <Text
+                type={"header7"}
+            >
+                {title}
+            </Text>
+
+            <View
+                style={styles_main.descriptionItem}
+            >
+                <Text
+                    type={"light"}
+                >
+                    Birim Fiyat:
+                </Text>
+
+                <Text
+                    type={"header11"}
+                    style={{
+                        color: colors.success
+                    }}
+                >
+                    {numberDivideder(unitPrice)} ₺
+                </Text>
+            </View>
+
+            <View
+                style={styles_main.descriptionItem}
+            >
+                <Text
+                    type={"light"}
+                >
+                    Adet:
+                </Text>
+
+                <Text
+                    type={"header11"}
+                >
+                    x {numberDivideder(count)}
+                </Text>
+            </View>
+
+            <View
+                style={styles_main.descriptionItem}
+            >
+                <Text
+                    type={"light"}
+                >
+                    Potansiyel Kazanç:
+                </Text>
+
+                <Text
+                    type={"header11"}
+                    style={{
+                        color: colors.success
+                    }}
+                >
+                    {numberDivideder(count * unitPrice)} ₺
+                </Text>
+            </View>
+        </View>
     </TouchableOpacity>
 };
 

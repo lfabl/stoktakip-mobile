@@ -1,4 +1,5 @@
 import React, {
+    useEffect,
     useState
 } from "react";
 import {
@@ -25,7 +26,8 @@ const Products = ({
     navigation
 }) => {
     const [searchValue, setSearchValue] = useState("");
-    const [datas, setDatas] = useState(PRODUCTS_DATAS);
+    const [_datas, _setDatas] = useState(PRODUCTS_DATAS);
+    const [datas, setDatas] = useState([]);
     const [nCoreTokens] = useCoreTokens();
     const [nCoreThems] = useCoreTheme();
 
@@ -36,6 +38,13 @@ const Products = ({
         spaces
     } = nCoreTokens;
 
+    useEffect(() => {
+        if (searchValue) {
+        }
+        else {
+            setSearchValue(PRODUCTS_DATAS)
+        }
+    }, [searchValue])
 
     return <View style={styles_main.container}>
         <Header
@@ -72,6 +81,7 @@ const Products = ({
                     title={item.title}
                     key={item.id}
                 />}
+                showsVerticalScrollIndicator={false}
             />
 
         </View>
