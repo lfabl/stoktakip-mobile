@@ -1,7 +1,8 @@
-import React from "react";
+import React, {
+    useState
+} from "react";
 import {
-    View,
-    ActivityIndicator
+    View
 } from "react-native";
 import {
     styles_main
@@ -19,13 +20,16 @@ const Products = ({
     navigation
 }) => {
     const [nCoreThems] = useCoreTheme();
+    const [nCoreTokens] = useCoreTokens();
+    const [searchValue, setSearchValue] = useState("");
+
     const {
         colors
     } = nCoreThems;
-    const [nCoreTokens] = useCoreTokens();
     const {
         spaces
     } = nCoreTokens;
+
 
     return <View style={styles_main.container}>
         <Header
@@ -48,10 +52,12 @@ const Products = ({
             ]}
         >
             <Search
-
+                value={searchValue}
+                onChangeText={(val) => setSearchValue(val)}
             />
-        </View>
 
+            
+        </View>
     </View>
 };
 

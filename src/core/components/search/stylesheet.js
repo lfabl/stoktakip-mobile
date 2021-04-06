@@ -10,6 +10,7 @@ export const styles_main = StyleSheet.create({
     width: "100%",
   },
   inputStyle: {
-    padding: 0
+    padding: 0,
+    fontFamily: "Exo2-Regular"
   },
 });
