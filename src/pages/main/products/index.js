@@ -4,14 +4,13 @@ import React, {
 } from "react";
 import {
     FlatList,
-    View,
+    View
 } from "react-native";
 import {
     styles_main
 } from "./stylesheet";
 import {
-    useCoreTokens,
-    useCoreTheme,
+    useCoreTokens
 } from "../../../core/context";
 import {
     ProductCard,
@@ -29,20 +28,29 @@ const Products = ({
     const [_datas, _setDatas] = useState(PRODUCTS_DATAS);
     const [datas, setDatas] = useState([]);
     const [nCoreTokens] = useCoreTokens();
-    const [nCoreThems] = useCoreTheme();
 
-    const {
-        colors
-    } = nCoreThems;
     const {
         spaces
     } = nCoreTokens;
 
     useEffect(() => {
         if (searchValue) {
+            const searchValueLowerCase = searchValue.toLowerCase();
+            const filteredDatas = _datas.filter((item) => {
+                const title = item.title.toLowerCase();
+                const unitPrice = item.unitPrice.toString().toLowerCase();
+                const count = item.count.toString().toLowerCase();
+                const potentialGain = (item.count * item.unitPrice).toString().toLowerCase();
+
+                return title.indexOf(searchValueLowerCase) !== -1 ||
+                    unitPrice.indexOf(searchValueLowerCase) !== -1 ||
+                    count.indexOf(searchValueLowerCase) !== -1 ||
+                    potentialGain.indexOf(searchValueLowerCase) !== -1
+            });
+            setDatas(filteredDatas);
         }
         else {
-            setSearchValue(PRODUCTS_DATAS)
+            setDatas(PRODUCTS_DATAS)
         }
     }, [searchValue])
 
