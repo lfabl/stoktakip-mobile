@@ -4,24 +4,30 @@ import {
     ActivityIndicator
 } from "react-native";
 import {
-    styles
-} from "./styles";
+    styles_main
+} from "./stylesheet";
 import {
-    useCoreTheme
+    useCoreTokens,
+    useCoreTheme,
 } from "../../../core/context";
 import {
-    Header
+    Header,
+    Search
 } from "../../../core/components";
 
 const Products = ({
     navigation
 }) => {
-    const [coreTheme] = useCoreTheme();
+    const [nCoreThems] = useCoreTheme();
     const {
         colors
-    } = coreTheme;
+    } = nCoreThems;
+    const [nCoreTokens] = useCoreTokens();
+    const {
+        spaces
+    } = nCoreTokens;
 
-    return <View style={styles.container}>
+    return <View style={styles_main.container}>
         <Header
             onPressDrawer={() => {
                 navigation.openDrawer();
@@ -32,6 +38,20 @@ const Products = ({
             title={"Ürünler"}
             headerType={"page"}
         />
+
+        <View
+            style={[
+                styles_main.container,
+                {
+                    padding: spaces.container
+                }
+            ]}
+        >
+            <Search
+
+            />
+        </View>
+
     </View>
 };
 
