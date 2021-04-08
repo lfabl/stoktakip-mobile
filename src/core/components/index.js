@@ -1,3 +1,4 @@
+import CoreInformationModal from './informationModal';
 import CoreProcutCard from "./productCard";
 import CoreTextInput from './textInput';
 import CoreHeader from './header';
@@ -6,6 +7,7 @@ import CoreSearch from './search';
 import CoreIcon from './icon';
 import CoreText from './text';
 
+export const InformationModal = CoreInformationModal;
 export const ProductCard = CoreProcutCard;
 export const TextInput = CoreTextInput;
 export const Header = CoreHeader;

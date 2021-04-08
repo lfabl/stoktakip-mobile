@@ -10,9 +10,11 @@ import {
     styles_main
 } from "./stylesheet";
 import {
-    useCoreTokens
+    useCoreTokens,
+    useCoreTheme,
 } from "../../../core/context";
 import {
+    InformationModal,
     ProductCard,
     Header,
     Search
@@ -24,14 +26,21 @@ import {
 const Products = ({
     navigation
 }) => {
-    const [searchValue, setSearchValue] = useState("");
-    const [_datas, _setDatas] = useState(PRODUCTS_DATAS);
-    const [datas, setDatas] = useState([]);
     const [nCoreTokens] = useCoreTokens();
+    const [nCoreTheme] = useCoreTheme();
+
+    const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+    const [delteModalIndex, setDeleteModalIndex] = useState(0);
+    const [_datas, _setDatas] = useState(PRODUCTS_DATAS);
+    const [searchValue, setSearchValue] = useState("");
+    const [datas, setDatas] = useState([]);
 
     const {
         spaces
     } = nCoreTokens;
+    const {
+        colors
+    } = nCoreTheme;
 
     useEffect(() => {
         if (searchValue) {
@@ -55,6 +64,19 @@ const Products = ({
     }, [searchValue])
 
     return <View style={styles_main.container}>
+        <InformationModal
+            content={`Onaylamanız halinde "${_datas[delteModalIndex].title}" adlı ürün ve beraberinde tüm stoğu silinecktir. Emin misiniz ?`}
+            setVisible={() => setDeleteModalVisible(false)}
+            visible={deleteModalVisible}
+            submitColor={colors.accent}
+            canelTitle={"Vazgeç"}
+            title={"Ürünü Sil"}
+            submitTitle={"Sil"}
+            onPressSubmit={() => {
+                console.warn("geldi");
+            }}
+        />
+
         <Header
             onPressDrawer={() => {
                 navigation.openDrawer();
@@ -82,7 +104,10 @@ const Products = ({
             <FlatList
                 data={datas}
                 renderItem={({ item, index }) => <ProductCard
-                    onPress={() => { }}
+                    onPress={() => {
+                        setDeleteModalVisible(true);
+                        setDeleteModalIndex(index);
+                    }}
                     unitPrice={item.unitPrice}
                     image={item.image}
                     count={item.count}

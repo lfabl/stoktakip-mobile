@@ -84,6 +84,7 @@ export const DEFAULT_CORE_TOKENS_STORE = {
     },
     radiuses: {
         textInput: 4,
+        modal: 15,
         button: 5,
         image: 5,
         card: 6,
