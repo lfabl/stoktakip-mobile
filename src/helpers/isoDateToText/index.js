@@ -21,8 +21,6 @@ const isoDateToText = (createDate) => {
     const hour = date.getHours();
     const minute = date.getMinutes();
 
-    console.log(month)
-
     return `${day} ${MONTHS[month]} ${year} ${hour}:${minute} `
 
 };

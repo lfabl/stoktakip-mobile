@@ -68,9 +68,9 @@ const ProductEdit = ({
     >
         <Header
             onPressBack={() => !editMode ? navigation.goBack() : setEditMode(false)}
-            onPressEdit={() => setEditMode(true)}
+            onPressEdit={!editMode ? () => setEditMode(true) : undefined}
             title={"Ürün Detay"}
-            content={"Görüntüle"}
+            content={!editMode ? "Görüntüle" : "Düzenle"}
             headerType={"page"}
         />
 

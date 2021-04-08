@@ -83,6 +83,7 @@ const Header = ({
                 if (onPressPlus) onPressPlus()
                 else if (onPressEdit) onPressEdit()
             }}
+            style={styles_main.subContainer}
         >
             {
                 onPressPlus || onPressEdit ? <View
