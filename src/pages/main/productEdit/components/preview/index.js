@@ -12,7 +12,8 @@ import {
     useCoreTheme,
 } from "../../../../../core/context";
 import {
-    numberDivideder
+    numberDivideder,
+    isoDateToText
 } from "../../../../../helpers";
 import {
     Icon,
@@ -70,7 +71,7 @@ const Preview = ({
         <PreviewItem
             icon={"calendar-day"}
             title={"Oluşturulma Tarihi"}
-            description={`${count}`}
+            description={`${isoDateToText(createDate)}`}
         />
     </View>
 };
