@@ -17,6 +17,7 @@ import {
 import Text from "../text";
 
 const ProductCard = ({
+    onLongPress,
     unitPrice,
     onPress,
     image,
@@ -48,6 +49,7 @@ const ProductCard = ({
         ]}
         activeOpacity={0.8}
         onPress={() => onPress()}
+        onLongPress={() => onLongPress()}
     >
         <Image
             source={{ uri: image }}

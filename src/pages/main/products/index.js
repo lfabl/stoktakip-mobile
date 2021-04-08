@@ -104,7 +104,10 @@ const Products = ({
             <FlatList
                 data={datas}
                 renderItem={({ item, index }) => <ProductCard
-                    onPress={() => {
+                    onPress={() => navigation.navigate("ProductEdit", {
+                        id: item.id
+                    })}
+                    onLongPress={() => {
                         setDeleteModalVisible(true);
                         setDeleteModalIndex(index);
                     }}

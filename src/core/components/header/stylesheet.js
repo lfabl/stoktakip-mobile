@@ -10,6 +10,10 @@ export const styles_main = StyleSheet.create({
         justifyContent: "space-between",
         height: 80
     },
+    detailContainer: {
+        alignItems: "center",
+        justifyContent: "center"
+    },
     subContainer: {
         width: 30,
         height: 30

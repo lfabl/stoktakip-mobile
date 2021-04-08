@@ -19,6 +19,7 @@ const Header = ({
     onPressEdit,
     onPressBack,
     headerType,
+    content,
     style,
     title
 }) => {
@@ -60,11 +61,22 @@ const Header = ({
             </View>
         </TouchableOpacity>
 
-        <Text
-            type="header10"
+        <View
+            style={styles_main.detailContainer}
         >
-            {title}
-        </Text>
+            <Text
+                type="header10"
+            >
+                {title}
+            </Text>
+            {
+                content ? <Text
+                    type="header8"
+                >
+                    {content}
+                </Text> : null
+            }
+        </View>
 
         <TouchableOpacity
             onPress={() => {
