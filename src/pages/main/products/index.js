@@ -63,6 +63,21 @@ const Products = ({
         }
     }, [searchValue])
 
+    useEffect(() => {
+        navigation.setOptions({
+            header: () => <Header
+                onPressDrawer={() => {
+                    navigation.openDrawer();
+                }}
+                onPressPlus={() => {
+
+                }}
+                title={"Ürünler"}
+                headerType={"page"}
+            />
+        });
+    }, []);
+
     return <View style={styles_main.container}>
         <InformationModal
             content={`Onaylamanız halinde "${_datas[delteModalIndex].title}" adlı ürün ve beraberinde tüm stoğu silinecktir. Emin misiniz ?`}
@@ -75,17 +90,6 @@ const Products = ({
             onPressSubmit={() => {
                 console.warn("geldi");
             }}
-        />
-
-        <Header
-            onPressDrawer={() => {
-                navigation.openDrawer();
-            }}
-            onPressPlus={() => {
-
-            }}
-            title={"Ürünler"}
-            headerType={"page"}
         />
 
         <View

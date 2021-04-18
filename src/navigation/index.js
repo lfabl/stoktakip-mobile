@@ -29,6 +29,8 @@ const LoadingStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 const MainStack = createStackNavigator();
 const MainDrawer = createDrawerNavigator();
+const HomeStack = createStackNavigator();
+const ProductStack = createStackNavigator();
 
 const { width } = Dimensions.get("window");
 const DRAWER_CONTAINER_WIDTH = width / 1.47;
@@ -69,6 +71,24 @@ const AuthNav = () => {
     </AuthStack.Navigator>
 };
 
+const HomeStackNav = () => {
+    return <HomeStack.Navigator>
+        <HomeStack.Screen
+            name={"Home"}
+            component={Home}
+        />
+    </HomeStack.Navigator>
+};
+
+const ProductStackNav = () => {
+    return <ProductStack.Navigator>
+        <HomeStack.Screen
+            name={"Products"}
+            component={Products}
+        />
+    </ProductStack.Navigator>
+};
+
 const MainDrawerNav = () => {
     return <MainDrawer.Navigator
         drawerContent={(props) => <DrawerContent {...props} />}
@@ -78,26 +98,25 @@ const MainDrawerNav = () => {
     >
         <MainDrawer.Screen
             name={"Home"}
-            component={Home}
+            component={HomeStackNav}
         />
 
         <MainDrawer.Screen
             name={"Products"}
-            component={Products}
+            component={ProductStackNav}
         />
 
     </MainDrawer.Navigator>
-}
+};
 
 const MainStackNav = () => {
-    return <MainStack.Navigator
-        screenOptions={{
-            headerShown: false
-        }}
-    >
+    return <MainStack.Navigator>
         <MainStack.Screen
             name={"MainDrawerNav"}
             component={MainDrawerNav}
+            options={{
+                headerShown: false
+            }}
         />
 
         <MainStack.Screen

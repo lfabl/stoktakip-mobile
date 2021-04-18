@@ -1,4 +1,6 @@
-import React from "react";
+import React, {
+    useEffect
+} from "react";
 import {
     View
 } from "react-native";
@@ -20,14 +22,20 @@ const Home = ({
         colors
     } = coreTheme;
 
+    useEffect(() => {
+        navigation.setOptions({
+            header: () => <Header
+                onPressDrawer={() => {
+                    navigation.openDrawer();
+                }}
+                title={"Stok Takip"}
+                headerType={"page"}
+            />
+        });
+    }, []);
+
     return <View style={styles.container}>
-        <Header
-            onPressDrawer={() => {
-                navigation.openDrawer();
-            }}
-            title={"Stok Takip"}
-            headerType={"page"}
-        />
+
     </View>
 };
 

@@ -4,21 +4,21 @@ import React, {
 } from "react";
 import {
     ScrollView,
-    Image,
     View,
 } from "react-native";
 import {
     styles_main
 } from "./styles";
 import {
+    Loading,
     Header,
-    Loading
 } from "../../../core/components";
 import {
     useCoreTokens,
     useCoreTheme,
 } from "../../../core/context";
 import Preview from "./components/preview";
+import Edit from "./components/edit";
 import { PRODUCTS_DATAS } from "../../../exampleDatas";
 
 const ProductEdit = ({
@@ -62,18 +62,24 @@ const ProductEdit = ({
         }
     }, [id])
 
+    useEffect(() => {
+        navigation.setOptions({
+            header: () => {
+                return <Header
+                    onPressBack={() => !editMode ? navigation.goBack() : setEditMode(false)}
+                    onPressEdit={!editMode ? () => setEditMode(true) : undefined}
+                    title={"Ürün Detay"}
+                    content={!editMode ? "Görüntüle" : "Düzenle"}
+                    headerType={"page"}
+                />
+            }
+        })
+    }, [editMode]);
+
     if (loading) return <Loading />
     return <View
         style={styles_main.container}
     >
-        <Header
-            onPressBack={() => !editMode ? navigation.goBack() : setEditMode(false)}
-            onPressEdit={!editMode ? () => setEditMode(true) : undefined}
-            title={"Ürün Detay"}
-            content={!editMode ? "Görüntüle" : "Düzenle"}
-            headerType={"page"}
-        />
-
         <ScrollView>
             {
                 !editMode ? <Preview
@@ -82,7 +88,12 @@ const ProductEdit = ({
                     image={image}
                     title={title}
                     count={count}
-                /> : null
+                /> : <Edit
+                    unitPrice={unitPrice}
+                    title={title}
+                    image={image}
+                    count={count}
+                />
             }
         </ScrollView>
     </View>
