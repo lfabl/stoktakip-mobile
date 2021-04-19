@@ -10,11 +10,13 @@ import {
 import {
     useCoreTheme,
     useCoreTokens
-} from "../../context";
+} from "../../core/context";
+import {
+    Text
+} from "../../core/components";
 import {
     numberDivideder
-} from "../../../helpers";
-import Text from "../text";
+} from "../../helpers";
 
 const ProductCard = ({
     onLongPress,

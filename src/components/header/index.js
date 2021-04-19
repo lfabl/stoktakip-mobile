@@ -9,9 +9,11 @@ import {
 import {
     useCoreTokens,
     useCoreTheme
-} from "../../context";
-import Icon from "../icon";
-import Text from "../text";
+} from "../../core/context";
+import {
+    Icon,
+    Text
+} from "../../core/components";
 
 const Header = ({
     onPressDrawer,

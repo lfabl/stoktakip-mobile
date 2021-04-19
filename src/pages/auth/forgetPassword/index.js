@@ -12,9 +12,11 @@ import {
 } from "@react-navigation/native";
 import {
     TextInput,
-    Header,
     Button,
 } from "../../../core/components";
+import {
+    Header
+} from "../../../components";
 import {
     useCoreTokens
 } from "../../../core/context";

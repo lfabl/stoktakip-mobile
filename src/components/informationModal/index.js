@@ -3,12 +3,14 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
-import Text from "../text";
 import Modal from "react-native-modal";
+import {
+    Text
+} from "../../core/components";
 import {
     useCoreTheme,
     useCoreTokens,
-} from "../../context";
+} from "../../core/context";
 import {
     styles_main
 } from "./stylesheet";

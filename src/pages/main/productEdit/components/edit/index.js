@@ -6,9 +6,11 @@ import {
     View,
 } from "react-native";
 import {
-    ImagePicker,
     TextInput
 } from "../../../../../core/components";
+import {
+    ImagePicker
+} from "../../../../../components";
 import {
     useCoreTokens,
 } from "../../../../../core/context";

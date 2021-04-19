@@ -12,7 +12,7 @@ import {
 } from "../../../core/context";
 import {
     Header
-} from "../../../core/components";
+} from "../../../components";
 
 const Home = ({
     navigation

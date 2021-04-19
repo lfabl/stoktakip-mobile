@@ -18,7 +18,7 @@ import {
     ProductCard,
     Header,
     Search
-} from "../../../core/components";
+} from "../../../components";
 import {
     PRODUCTS_DATAS
 } from "../../../exampleDatas";

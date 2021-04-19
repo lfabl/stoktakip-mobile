@@ -6,7 +6,7 @@ import {
 import {
     useCoreTokens,
     useCoreTheme,
-} from "../../context";
+} from "../../core/context";
 import {
     styles_main
 } from "./stylesheet";

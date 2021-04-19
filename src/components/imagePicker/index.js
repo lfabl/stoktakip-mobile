@@ -4,8 +4,10 @@ import {
 } from "react-native";
 import {
     useCoreTheme
-} from "../../context";
-import Icon from "../icon";
+} from "../../core/context";
+import {
+    Icon
+} from "../../core/components";
 import Picker from 'react-native-image-crop-picker';
 
 const ImagePicker = ({

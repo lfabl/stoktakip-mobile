@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import {
     useCoreTheme
-} from "../../context";
+} from "../../core/context";
 
 const Loading = () => {
     const [coreTheme] = useCoreTheme();

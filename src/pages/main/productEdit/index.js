@@ -12,7 +12,7 @@ import {
 import {
     Loading,
     Header,
-} from "../../../core/components";
+} from "../../../components";
 import {
     useCoreTokens,
     useCoreTheme,
