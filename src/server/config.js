@@ -1,0 +1,1 @@
+export const serverIP = "http://192.168.251.2:4000/";

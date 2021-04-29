@@ -4,6 +4,7 @@ import {
 } from './stylesheet';
 import PropTypes from 'prop-types';
 import {
+    ActivityIndicator,
     TouchableOpacity,
     ViewPropTypes,
     View
@@ -25,6 +26,7 @@ const Button = ({
     titleStyle,
     textColor,
     disabled,
+    loading,
     onPress,
     title,
     style,
@@ -98,46 +100,54 @@ const Button = ({
             {...props}
         >
             {
-                icon ?
-                    <Icon
-                        family={icon.family}
-                        name={icon.name ? icon.name : "home"}
-                        size={SIZES[size].icon.size}
-                        color={frontColor}
-                        style={{
-                            position: title ? "absolute" : "relative",
-                            left: title ? SIZES[size].icon.size ?
-                                (SIZES[size].container.paddingHorizontal + SIZES[size].icon.size) / 2.25
-                                :
-                                (SIZES[size].container.paddingHorizontal + 24) / 2.25 : null
-                        }}
-                    />
-                    :
-                    null
+                loading ? <ActivityIndicator
+                    size={"large"}
+                    color={frontColor}
+                /> : <>
+                    {
+                        icon ?
+                            <Icon
+                                family={icon.family}
+                                name={icon.name ? icon.name : "home"}
+                                size={SIZES[size].icon.size}
+                                color={frontColor}
+                                style={{
+                                    position: title ? "absolute" : "relative",
+                                    left: title ? SIZES[size].icon.size ?
+                                        (SIZES[size].container.paddingHorizontal + SIZES[size].icon.size) / 2.25
+                                        :
+                                        (SIZES[size].container.paddingHorizontal + 24) / 2.25 : null
+                                }}
+                            />
+                            :
+                            null
+                    }
+                    {
+                        title ?
+                            <Text
+                                type="button"
+                                numberOfLines={1}
+                                style={[
+                                    style_main.title,
+                                    {
+                                        color: frontColor,
+                                        ...SIZES[size].title,
+                                        ...typography["button"]
+                                    },
+                                    titleStyle
+                                ]}
+                            >
+                                {icon ? <View style={{
+                                    width: icon.size ? icon.size : 24
+                                }}></View> : null}
+                                {title}
+                            </Text>
+                            :
+                            null
+                    }
+                </>
             }
-            {
-                title ?
-                    <Text
-                        type="button"
-                        numberOfLines={1}
-                        style={[
-                            style_main.title,
-                            {
-                                color: frontColor,
-                                ...SIZES[size].title,
-                                ...typography["button"]
-                            },
-                            titleStyle
-                        ]}
-                    >
-                        {icon ? <View style={{
-                            width: icon.size ? icon.size : 24
-                        }}></View> : null}
-                        {title}
-                    </Text>
-                    :
-                    null
-            }
+
         </TouchableOpacity>
     );
 };

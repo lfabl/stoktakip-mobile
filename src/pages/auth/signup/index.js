@@ -22,12 +22,18 @@ import {
 import {
     useCoreTokens
 } from "../../../core/context";
+import {
+    signUp
+} from "../../../server";
+import md5 from "md5";
+import Toast from "react-native-simple-toast";
 
 const Signup = () => {
     const navigation = useNavigation();
     const [nCoreTokens] = useCoreTokens();
 
     const [companyCode, setCompanyCode] = useState("");
+    const [loading, setLoading] = useState(false);
     const [fullName, setFullName] = useState("");
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -36,6 +42,22 @@ const Signup = () => {
     const {
         spaces
     } = nCoreTokens;
+
+    const signUpUser = async () => {
+        setLoading(true);
+        const signUpResult = await signUp({
+            companyCode: companyCode,
+            password: md5(password),
+            userName: userName,
+            fullName: fullName,
+            mail: mail
+        });
+        if (signUpResult.code === 200) {
+            navigation.navigate("Login");
+        }   
+        Toast.show(signUpResult.message, Toast.LONG);
+        setLoading(false);
+    };
 
     return <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -103,9 +125,12 @@ const Signup = () => {
             />
 
             <Button
-                onPress={() => { }}
+                onPress={() => {
+                    signUpUser();
+                }}
                 title="Kayıt Ol"
                 wrap="no-wrap"
+                loading={loading}
             />
         </View>
     </KeyboardAvoidingView >;

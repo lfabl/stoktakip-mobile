@@ -6,7 +6,8 @@ export const styles_main = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        zIndex: 99
     },
     contentContainer: {
         width: "100%",
